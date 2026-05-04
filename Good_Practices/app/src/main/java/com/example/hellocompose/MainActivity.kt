@@ -12,8 +12,11 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -46,6 +49,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.hellocompose.Buttons.Testbtn
 import com.example.hellocompose.ui.theme.HelloComposeTheme
 
 class MainActivity : ComponentActivity() {
@@ -58,7 +62,14 @@ class MainActivity : ComponentActivity() {
 //                    Mytextview("Hello, World !")
 //                    MyTextView("Testing, World !")
 //                    TextEx("My name is Bappi Singh !");
-                    btn();
+                    Row(
+                        modifier = Modifier.fillMaxSize(),
+                        horizontalArrangement = Arrangement.SpaceEvenly,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        btn()
+                        Testbtn()
+                    }
                 }
 
 
@@ -67,19 +78,14 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-
 @Composable
 fun btn(){
 
-    Column(
-        modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
+
         val context = LocalContext.current
         Button(
             onClick = {
-                Toast.makeText(context,"Welcome to my btn", Toast.LENGTH_LONG).show()
+                Toast.makeText(context,"Welcome to my btn", Toast.LENGTH_LONG ).show()
             },
             modifier = Modifier.padding(16.dp),
             enabled = true,
@@ -110,7 +116,7 @@ fun btn(){
             )
         }
     }
-}
+
 
 
 
