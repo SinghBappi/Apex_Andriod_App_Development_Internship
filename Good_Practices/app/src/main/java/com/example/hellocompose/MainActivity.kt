@@ -2,26 +2,38 @@ package com.example.hellocompose
 
 //import android.R
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.gestures.scrollable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorProducer
 import androidx.compose.ui.graphics.Shadow
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.shadow.ShadowContext
+import androidx.compose.ui.platform.LocalContext
 //import androidx.compose.ui.platform.getTextLayoutResult
 import androidx.compose.ui.text.TextLayoutResult
 import androidx.compose.ui.text.TextStyle
@@ -45,13 +57,63 @@ class MainActivity : ComponentActivity() {
                 Surface(color = MaterialTheme.colorScheme.background){
 //                    Mytextview("Hello, World !")
 //                    MyTextView("Testing, World !")
-                    TextEx("My name is Bappi Singh and want to become an Developer !");
+//                    TextEx("My name is Bappi Singh !");
+                    btn();
                 }
+
 
             }
         }
     }
 }
+
+
+@Composable
+fun btn(){
+
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        val context = LocalContext.current
+        Button(
+            onClick = {
+                Toast.makeText(context,"Welcome to my btn", Toast.LENGTH_LONG).show()
+            },
+            modifier = Modifier.padding(16.dp),
+            enabled = true,
+            shape = RoundedCornerShape(12.dp),
+            colors = ButtonDefaults.buttonColors(
+                contentColor = Color.Green,
+                containerColor = Color.Black
+
+            ),
+            elevation = ButtonDefaults.buttonElevation(defaultElevation = 10.dp),
+            border = BorderStroke(width = 2.dp, brush = SolidColor(Color.Green)),
+            contentPadding = PaddingValues(
+                start = 20.dp,
+                top = 12.dp,
+                end = 20.dp,
+                bottom = 12.dp
+            ),
+            interactionSource = remember {
+                MutableInteractionSource()
+            }
+        ) {
+            Text(
+                text = "Testing Kar raha hu Bhai",
+                fontSize = 16.sp,
+                fontWeight = FontWeight.Bold,
+                fontStyle = FontStyle.Italic,
+                fontFamily = FontFamily.Serif
+            )
+        }
+    }
+}
+
+
+
 @Composable
 fun TextEx(data1:String){
     Column(
@@ -63,7 +125,7 @@ fun TextEx(data1:String){
         Text(text = data1,
             modifier = Modifier.fillMaxWidth().padding(16.dp),
             color = Color.White,
-            fontSize = 40.sp,
+            fontSize = 20.sp,
             fontWeight = FontWeight.Bold,
             fontStyle = FontStyle.Italic,
             fontFamily = FontFamily.Cursive,
@@ -117,7 +179,7 @@ fun MyTextView(data1:String,modifier: Modifier= Modifier){
     }
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun GreetingPreview() {
     HelloComposeTheme {
