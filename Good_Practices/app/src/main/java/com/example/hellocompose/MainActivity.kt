@@ -50,6 +50,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.hellocompose.Buttons.Testbtn
+import com.example.hellocompose.EditText.MeraTextField
+import com.example.hellocompose.EditText.MyTextField
 import com.example.hellocompose.ui.theme.HelloComposeTheme
 
 class MainActivity : ComponentActivity() {
@@ -62,14 +64,17 @@ class MainActivity : ComponentActivity() {
 //                    Mytextview("Hello, World !")
 //                    MyTextView("Testing, World !")
 //                    TextEx("My name is Bappi Singh !");
-                    Row(
-                        modifier = Modifier.fillMaxSize(),
-                        horizontalArrangement = Arrangement.SpaceEvenly,
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        btn()
-                        Testbtn()
-                    }
+//                    Row(
+//                        modifier = Modifier.fillMaxSize(),
+//                        horizontalArrangement = Arrangement.SpaceEvenly,
+//                        verticalAlignment = Alignment.CenterVertically
+//                    ) {
+//                        btn()
+//                        Testbtn()
+
+//                        MyTextField();
+//                    }
+                    MeraTextField();
                 }
 
 
