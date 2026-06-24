@@ -52,6 +52,7 @@ import androidx.compose.ui.unit.sp
 import com.example.hellocompose.Buttons.Testbtn
 import com.example.hellocompose.EditText.MeraTextField
 import com.example.hellocompose.EditText.MyTextField
+import com.example.hellocompose.switch_button.MyContent
 import com.example.hellocompose.ui.theme.HelloComposeTheme
 
 class MainActivity : ComponentActivity() {
@@ -74,8 +75,12 @@ class MainActivity : ComponentActivity() {
 
 //                        MyTextField();
 //                    }
-                    MeraTextField();
+//                    MeraTextField();
+
+
+                    MyContent();
                 }
+
 
 
             }
